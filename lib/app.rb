@@ -9,11 +9,16 @@ get '/secret' do
   'this is a secret'
 end
 
-get '/cat' do
-    "<div style='border: dashed red'>
-    <img src='https://i.imgur.com/jFaSxym.png/500/500'>
-    </div>"
-  end
+get '/random-cat' do
+  @name = ["Amigo", "Misty", "Almond"].sample
+  erb(:index)
+end
+
+get '/named-cat' do
+  p params
+  @name = params[:name]
+  erb(:index)
+end
 
 # get '/cat' do
 #   "<body>
